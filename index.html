@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-dark text-light">
+    <div class="content container justify-content-center align-items-center d-flex">
+        <div class="card container-fluid bg-light">
+            <div class="row">
+                <div id="col-list-users" class="col-md-7 pe-4 pt-4">
+                    <h4 class="text-center mb-4">Usuários Cadastrados</h4>
+                    <div id="lista">
+                        <ul id="listUsers" class="pe-5">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h4 class="text-center mt-5">Página feita por:</h4>
+                    <h6 class="ps-4 text-center mb-5"><a class="text-dark" href="https://github.com/trueryk\"><i class="bi bi-github"></i> Henrique Ferreira</a></h6>
+                    <button type="button" class="btn btn-dark position-absolute end-0 me-5 mt-5" id="popularBtn">
+                        Popular lista de Usuários  <i class="bi bi-globe ms-2"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark position-absolute end-0 bottom-0 mb-5 me-5"
+                        data-bs-toggle="modal" data-bs-target="#modalRegister">
+                        Adicionar usuário <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="modalRegisterLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header" id="registerModal">
+                    <h1 class="modal-title fs-5" id="modalRegisterLabel">Cadastrar usuário</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="userName" class="form-label">Nome</label>
+                    <input type="text" class="form-control bg-dark text-light mb-3" name="userName" id="userName"
+                        placeholder="Digite seu nome">
+                    <label for="userEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control bg-dark text-light mb-3" name="userEmail" id="userEmail"
+                        placeholder="email@gmail.com">
+                    <label for="dataNasc" class="form-label">Data de Nascimento</label>
+                    <input type="date" class="form-control bg-dark text-light mb-3" name="dataNasc" id="dataNasc">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" id="cancelBtn" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="registerBtn">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="modalEditLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header" id="registerModal">
+                    <h1 class="modal-title fs-5" id="modalEditLabel">Editar usuário: </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="userNameEdit" class="form-label">Nome</label>
+                    <input type="text" class="form-control bg-dark text-light mb-3" name="userNameEdit" id="userNameEdit"
+                        placeholder="Digite seu nome">
+                    <label for="userEmailEdit" class="form-label">Email</label>
+                    <input type="email" class="form-control bg-dark text-light mb-3" name="userEmailEdit" id="userEmailEdit"
+                        placeholder="email@gmail.com">
+                    <label for="dataNascEdit" class="form-label">Data de Nascimento</label>
+                    <input type="date" class="form-control bg-dark text-light mb-3" name="dataNascEdit" id="dataNascEdit">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" id="cancelBtn" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="editBtn" data-aid="">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveSuccess" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-theme="dark">
+            <div class="toast-header">
+                <strong class="me-auto">Usuário cadastrado!</strong>
+                <small id="horaSuccess"></small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+
+            </div>
+        </div>
+        <div id="liveFailed" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-danger text">
+                <strong class="me-auto text-light">Erro ao cadastrar usuário</strong>
+                <small class="text-light"></small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                É preciso preencher todos os campos
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

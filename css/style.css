@@ -1,0 +1,25 @@
+.card {
+    width: 80vw;
+    height: 80vh;
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+}
+
+#col-list-users {
+    height: 70vh;
+}
+
+#col-list-users>#lista {
+    height: 100%;
+    overflow: auto
+}
+
+
+#listUsers>li {
+
+    padding-bottom: 1vh;
+    border-bottom: 1px solid black;
+}
